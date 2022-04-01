@@ -28,4 +28,22 @@ Many newer machines which target the Windows operating system have an additional
 Ubuntu Linux is EXTREMELY easy to install. For the most part, this process is just following prompts. When prompted with the GRUB boot manager, simply select first option with enter. You should be directed to installation page, select "Install Ubuntu" and proceed.  A few notes as you are going through this process:
 - since we are not attempting a dual-booted system, *after this installation process is complete, Windows will no longer exist on your system and all data on the disk with be irrevocably destroyed.* _I AM NOT RESPONSIBLE FOR YOUR LOST DATA :)_
 - I highly recommend choosing the "Install third-party software for graphics and Wi-Fi hardware and additional media formats" option in the *Updates and other software* menu, as this will ensure any proprietary drivers needed for your system will be included.
-- After you have selected installation type, i.e. *Erase disk and install Ubuntu* and hit "Install Now", there is no turning back. So think very carefully before your proceed and this juncture.  
+- After you have selected installation type, i.e. *Erase disk and install Ubuntu* and hit "Install Now", there is no turning back. So think very carefully before your proceed at this juncture.  
+** Ubuntu configuration
+After you have removed your installation media and rebooted, you will probably want to re-enter your BIOS and return BOOT priorities to their previous setting. Nevertheless, upon system boot, you should now be directed to your fresh Ubuntu system. Enter your password and we now get to the real stuff.
+*** Package Management Notes
+You will initially be prompted with a GUI interface which will allow you to select packages for installation. I am going to *STRONGLY* recommend that you do *NOT* use this method of package management. We are developers and to avoid the use of the robust Linux command line in favor of something geared towards non-developers is silly. At this moment, I should explain a little bit about package management in Ubuntu.
+**** Package Managers
+There are *many* ways to acquire software on Ubuntu. I will give a brief overview of the core utilities.
+- *apt* is the main package management system of not only Ubuntu, but all Debian derivatives. Typical open source software which is developed with linux in mind will exist in the Ubuntu repositories and will be accessible with a simple
+  #+begin_src
+sudo apt install <package_name>
+  #+end_src
+- *snaps* are a containerized installation method which is typically used in cases where the software in question is targetting proprietary and/or more mainstream operating systems. Snaps are useful in cases where changes in dependencies (i.e. dynamic linking of systems libraries) have the potential to break Linux compatibility. Essentially the way they work is that all dependencies needed in order to provide a stable package are bundled together with the target software itself within a container. This will increase the space footprint of the given software, but will ensure that system upgrades will NOT break any dependencies and render the software unusable. Think of softwares like VSCode, zoom, slack, etc... If the software is not intended as FOSS, you most likely will be performing a snap installation. Snap packages are typically installed via
+  #+begin_src
+sudo snap install <package_name>
+  #+end_src
+  although at current time, so called "classic" confinement is often needed. We do this by simply supplying the "classic" flag
+  #+begin_src
+sudo snap install --classic <package_name>
+  #+end_src
