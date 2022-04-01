@@ -49,3 +49,11 @@ sudo snap install --classic <package_name>
   #+end_src 
 - *dpkg* is the core package installation utility of Debian and it's derivatives, /there be dragons here/. Whenever encountering installation instructions that recommend the usage of dpkg on provided .deb packages, we should EXERCISE EXTREME CAUTION. The reason being, Ubuntu and other distributions that lean heavily on apt do so to avoid what is known as *dependency hell*, a situation one can find themself in when they look to manually provide software support. For the most part, stay away from this unless you know precisely what you are doing and have an intimate knowledge of the versioning of your system software.
 - *other methods* are installations which involve the use of direct compilation, provided build scripts, or other means which involve the raw targeting of bin directories. Typically, we will encounter these types of installations as instructions from a git repository or in the building of our own software. 99% of the time, when we want some software which is not included in official repositories, the given application's relevant installation instructions will be included in their repository. At some point in this tutorial, we will see an example of this in the installation of some additional zsh features. It should be noted that the raw management of dependencies as with dpkg can present issues with such softwares but more often than not, we seek to install lightweight freestanding software in this fashion.
+**** Fresh System Update
+The provided Ubuntu image is most likely not 100% up to date, let's take this opportunity to run our first apt command to perform a full system update and reboot!
+#+begin_src shell
+  sudo apt update
+sudo reboot
+#+end_src 
+** Installing VSCode, zoom, slack via snaps
+Let's begin by installing our more proprietary minded software via snaps.
