@@ -112,7 +112,7 @@ Yeah, I know. You are forever in my debt for showing you this.
 ** Python, NodeJS, Postgres installation
 Let's install our core programming languages and do some minor config.
 #+begin_src shell
-sudo apt install python nodejs
+sudo apt install python pipenv nodejs npm
 #+end_src 
 We should note that we are generally going to be using python 3, so it is somewhat inconvenient to constantly reference python 3 via python3 command. Let's create a quick alias to fix that.
 #+begin_src shell
@@ -123,4 +123,29 @@ Now you'll notice that
 #+begin_src shell
 python --version
 #+end_src 
-returns python 3.9... something or other.
+returns python 3.9... something or other. NodeJS should just work out of the box. Let's move on to installing postgres and configuring it.
+#+begin_src shell
+sudo apt install postgresql postgresql-contrib
+#+end_src 
+Now that we have postgresql installed, let's start the service (going forward it should be started by default, but we can always re-run this command if need be.)
+#+begin_src shell
+sudo systemctl start postgresql.service
+#+end_src 
+Now, postgres by default creates a default /postgres/ user and our current user doesn't have the permissions that his default user does. So let's quickly change to that user and create a user associated with our account.
+#+begin_src shell
+sudo -i -u postgres
+#+end_src 
+Now that we are logged in as postgres user, we can create a new user associated with our primary account.
+#+begin_src shell
+createuser --interactive
+#+end_src 
+Follow the prompts, provide your user name and give yourself superuser permissions. Then create a DB associated with your username and logout of postgres user.
+#+begin_src shell
+createdb <your_username>
+exit
+#+end_src 
+Voila, you should now be able to access psql shell without issue!
+#+begin_src shell
+psql
+# \q to quit, if you don't remember.
+#+end_src 
