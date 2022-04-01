@@ -1,0 +1,5 @@
+* Creating Bootable Media
+In Windows, acquire "balenaEtcher" and the non-LTS Ubuntu installation image. At the time of this video, 
+** Links
+-https://www.balena.io/etcher/
+-https://ubuntu.com/#download (21.10 at the time of this tutorial)
