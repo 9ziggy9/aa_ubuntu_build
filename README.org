@@ -53,7 +53,7 @@ sudo snap install --classic <package_name>
 The provided Ubuntu image is most likely not 100% up to date, let's take this opportunity to run our first apt command to perform a full system update and reboot!
 #+begin_src shell
   sudo apt update
-sudo reboot
+  sudo reboot
 #+end_src 
 ** Installing VSCode, zoom, slack via snaps
 Let's begin by installing our more proprietary minded software via snaps.
