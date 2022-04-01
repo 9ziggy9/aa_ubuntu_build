@@ -1,6 +1,7 @@
 * Ziggy's Ubuntu Build for AppAcademy
+This (hopefully) short tutorial is intended as a guide to setting up a simple development environment in Ubuntu Linux compatible with AppAcademy's curriculum.
 ** Creating Bootable Installation Media
-In Windows, acquire "balenaEtcher" and the non-LTS Ubuntu installation image. At the time of this video, 
+In Windows, acquire "balenaEtcher" and the non-LTS Ubuntu installation image. balenaEtcher is extremely easy to use, simply provide Ubuntu ISO image and desired drive to flash and voila. *WARNING:* whenever flashing any sort of storage media, be sure that it is the one you *intend to target*. That is, be absolutely certain that you have provided the flask drive path and not your filesystem!
 *** Links
 - https://www.balena.io/etcher/
 - https://ubuntu.com/#download (21.10 at the time of this tutorial)
