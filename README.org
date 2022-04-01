@@ -40,8 +40,7 @@ There are *many* ways to acquire software on Ubuntu. I will give a brief overvie
 sudo apt install <package_name>
   #+end_src
 - *snaps* are a containerized installation method which is typically used in cases where the software in question is targetting proprietary and/or more mainstream operating systems. Snaps are useful in cases where changes in dependencies (i.e. dynamic linking of systems libraries) have the potential to break Linux compatibility. Essentially the way they work is that all dependencies needed in order to provide a stable package are bundled together with the target software itself within a container. This will increase the space footprint of the given software, but will ensure that system upgrades will NOT break any dependencies and render the software unusable. Think of softwares like VSCode, zoom, slack, etc... If the software is not intended as FOSS, you most likely will be performing a snap installation. Snap packages are typically installed via
-  #+begin_src
-
+  #+begin_src console
 sudo snap install <package_name>
 #+end_src
   although at current time, so called "classic" confinement is often needed. We do this by simply supplying the "classic" flag
