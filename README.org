@@ -5,7 +5,7 @@ In Windows, acquire "balenaEtcher" and the non-LTS Ubuntu installation image. ba
 *** Links
 - https://www.balena.io/etcher/
 - https://ubuntu.com/#download (21.10 at the time of this tutorial)
-** BIOS configuration and BOOT PRIORITY
+** BIOS configuration and BOOT priorities
 *** Entering BIOS configuration
 Now that you have your bootable disk media, you will want to reboot your machine and enter BIOS configuration. To do this on a typical machine, one interrupts the boot process by hitting their associated BIOS setup key before system startup of operating system can be reached. Sometimes we do not know what key is necessary to enter BIOS. To solve this:
 **** The realistic way:
@@ -15,3 +15,12 @@ Given your machine model/make, look up the corresponding BIOS configuration key.
 Typical BIOS configuration keys are:
 - Esc
 - F2, F12, F8, etc...
+*** Setting BOOT priorities
+Now that you are in your BIOS configuration, you will want to navigate to a section which details the order in which disks are booted in. Typically, BIOS utilities have tabs at the top and one in particular labeled "BOOT". What you should see is an ordered list, with your HDD at slot 1.
+If you look at the bottom of the boot menu, you should see some indication of how to promote media in this list. Typically this is done with -/+.
+Navigate to your installation media in the ordered list, (i.e. the USB flash drive), then promote it to the top of the list.
+Look for the save/exit command. Typically it is F9. Confirm the changes and upon reboot, if all has gone well, you should be booted into the Ubuntu installation!
+If this seems confusing or these directions do not quite match with the reality of your system, you may have to independently research a solution. I am providing the link to this YouTube video to help you better visualize what this process looks like. *If you are at all confused, please reference this before moving forward!*
+- https://www.youtube.com/watch?v=9GblKZO-smU
+*** SECURE BOOT WARNING and general troubleshooting
+Many newer machines which target the Windows operating system have an additional UEFI feature called /secure boot/, this feature can at times interfere with the Linux bootstrapping process. If you find yourself unable to boot into the Linux installation environment, the first thing you should try is disabling this feature in BIOS. You should be able to find it trivially, but there are also resources online for most hardware if you care to look.
