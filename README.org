@@ -1,5 +1,5 @@
 * Ziggy's Ubuntu Build for AppAcademy
-This (hopefully) short tutorial is intended as a guide to setting up a simple development environment in Ubuntu Linux compatible with AppAcademy's curriculum.
+This (hopefully) short tutorial is intended as a guide to setting up a simple development environment in Ubuntu Linux compatible with AppAcademy's curriculum. *THIS GUIDE IS OFFERED WITH ABSOLUTELY ZERO WARRANTY AND I AM NOT RESPONSIBLE FOR ANYTHING YOU BRICK/DESTROY/ANNIHILATE/RENDER UNUSABLE.* That said, if you find yourself in trouble, feel free to submit an issue to this repo and I'll try to get back to you in a timely manner. :)
 ** Creating Bootable Installation Media
 In Windows, acquire "balenaEtcher" and the non-LTS Ubuntu installation image. balenaEtcher is extremely easy to use, simply provide Ubuntu ISO image and desired drive to flash and voila. *WARNING:* whenever flashing any sort of storage media, be sure that it is the one you *intend to target*. That is, be absolutely certain that you have provided the flask drive path and not your filesystem!
 *** Links
@@ -25,6 +25,7 @@ If this seems confusing or these directions do not quite match with the reality 
 *** SECURE BOOT WARNING and general troubleshooting
 Many newer machines which target the Windows operating system have an additional UEFI feature called /secure boot/, this feature can at times interfere with the Linux bootstrapping process. If you find yourself unable to boot into the Linux installation environment, the first thing you should try is disabling this feature in BIOS. You should be able to find it trivially, but there are also resources online for most hardware if you care to look.
 ** Ubuntu Installation
-Ubuntu Linux is EXTREMELY easy to install. For the most part, this process is just following prompts. A few notes as you are going through this process:
+Ubuntu Linux is EXTREMELY easy to install. For the most part, this process is just following prompts. When prompted with the GRUB boot manager, simply select first option with enter. You should be directed to installation page, select "Install Ubuntu" and proceed. A few notes as you are going through this process:
 - since we are not attempting a dual-booted system, *after this installation process is complete, Windows will no longer exist on your system and all data on the disk with be irrevocably destroyed.* _I AM NOT RESPONSIBLE FOR YOUR LOST DATA :)_
-  
+  - I highly recommend choosing the "Install third-party software for graphics and Wi-Fi hardware and additional media formats" option in the *Updates and other software* menu, as this will ensure any proprietary drivers needed for your system will be included.
+    - After you have selected installation type, i.e. *Erase disk and install Ubuntu* and hit "Install Now", there is no turning back. So think very carefully before your proceed and this juncture.  
