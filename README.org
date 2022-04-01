@@ -46,5 +46,7 @@ sudo snap install <package_name>
   although at current time, so called "classic" confinement is often needed. We do this by simply supplying the "classic" flag
   #+begin_src
 sudo snap install --classic <package_name>
-  #+end_src
+  #+end_src 
+- Hello, world
+
 - *classic methods* are installations which involve the use of direct compilation, provided build scripts, or other means which involve the raw targeting of bin directories. Typically, we will encounter these types of installations as instructions from a git repository or in the building of our own software. 99% of the time, when we want some software which is not included in official repositories, the given application's relevant installation instructions will be included in their repository. At some point in this tutorial, we will see an example of this in the installation of some additional zsh features.
