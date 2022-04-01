@@ -190,3 +190,7 @@ While we'are add it, let's install Heroku command line too.
 #+begin_src shell
 sudo snap install --classic heroku
 #+end_src 
+Note when using heroku-cli, we might need to login interactively in the shell, not redirect to webpages. It's better this way anyways;
+#+begin_src shell
+heroku login -i
+#+end_src 
