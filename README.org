@@ -109,3 +109,18 @@ Can't remember that Heroku command you ran before? ctrl-r, can't remember some b
 Here's another one to try, say you want to cd into a directory but don't quite remember it's path. Type cd, then ctrl-t.
 *OH MY GOD*
 Yeah, I know. You are forever in my debt for showing you this.
+** Python, NodeJS, Postgres installation
+Let's install our core programming languages and do some minor config.
+#+begin_src shell
+sudo apt install python nodejs
+#+end_src 
+We should note that we are generally going to be using python 3, so it is somewhat inconvenient to constantly reference python 3 via python3 command. Let's create a quick alias to fix that.
+#+begin_src shell
+  echo 'alias python="python3"' >> ~/.zshrc
+source ~/.zshrc
+#+end_src 
+Now you'll notice that
+#+begin_src shell
+python --version
+#+end_src 
+returns python 3.9... something or other.
