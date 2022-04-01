@@ -8,7 +8,7 @@ In Windows, acquire "balenaEtcher" and the non-LTS Ubuntu installation image. ba
 ** BIOS configuration and BOOT PRIORITY
 Now that you have your bootable disk media, you will want to reboot your machine and enter BIOS configuration. To do this on a typical machine, one interrupts the boot process by hitting their associated BIOS setup key before system startup of operating system can be reached. Sometimes we do not know what key is necessary to enter BIOS. To solve this:
 - The realistic way: As system is starting, as soon as you see the logo screen (DELL, ASUS, HP, etc...) start repeatedly pressing your F keys. If you've mashed sufficiently, you should be directed to a prompt asking you to enter BIOS setup, or you may simply be directed there.
-  - The professional way: verify your computer model and look up what the actual BIOS configuration key is.
+ - The professional way: verify your computer model and look up what the actual BIOS configuration key is.
 Typical BIOS configuration keys are:
 - Esc
 - F2, F12, F8, etc...
