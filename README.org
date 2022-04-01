@@ -24,3 +24,7 @@ If this seems confusing or these directions do not quite match with the reality 
 - https://www.youtube.com/watch?v=9GblKZO-smU
 *** SECURE BOOT WARNING and general troubleshooting
 Many newer machines which target the Windows operating system have an additional UEFI feature called /secure boot/, this feature can at times interfere with the Linux bootstrapping process. If you find yourself unable to boot into the Linux installation environment, the first thing you should try is disabling this feature in BIOS. You should be able to find it trivially, but there are also resources online for most hardware if you care to look.
+** Ubuntu Installation
+Ubuntu Linux is EXTREMELY easy to install. For the most part, this process is just following prompts. A few notes as you are going through this process:
+- since we are not attempting a dual-booted system, *after this installation process is complete, Windows will no longer exist on your system and all data on the disk with be irrevocably destroyed.* _I AM NOT RESPONSIBLE FOR YOUR LOST DATA :)_
+  
