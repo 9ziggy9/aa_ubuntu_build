@@ -62,10 +62,10 @@ sudo snap install --classic code
 sudo snap install zoom-client
 sudo snap installl slack
 #+end_src 
-** Installing git, zsh via apt
-We now install git and zsh as our user shell, as I personally cannot live without it. Note the use of apt here, as these are widely loved and maintained FOSS (free and open source software). We can inline multiple packages if we'd like.
+** Installing git, zsh, curl via apt
+We now install git and zsh as our user shell, as I personally cannot live without it. Note the use of apt here, as these are widely loved and maintained FOSS (free and open source software). We can inline multiple packages if we'd like. We'll also need curl in the future.
 #+begin_src shell
-sudo apt install git zsh
+sudo apt install git zsh curl
 #+end_src 
 To set our default user shell to zsh, we run
 #+begin_src shell
@@ -148,4 +148,45 @@ Voila, you should now be able to access psql shell without issue!
 #+begin_src shell
 psql
 # \q to quit, if you don't remember.
+#+end_src 
+** Docker installation (final boss)
+This is an Ubuntu specific issue, had we chosen an Arch based distro, or some type of rolling release model, we would not encounter these issues. The Docker app provided by Ubuntu repo is PAINFULLY outdated. To mitigate this, we are going to add the official Docker repo to apt and install the so-called Docker community edition. What follows is somewhat hands on and *totally atypical* of Ubuntu system management. When in doubt, consult documentation, as I have for this guide. Let's begin by enabling services that allow apt to use packages over HTTPS.
+#+begin_src shell
+  sudo apt install apt-transport-https ca-certificates curl software-properties-common
+#+end_src
+Next we add a trust GPG key from the official Docker repo to the apt key chain (you can safely ignore the deprecation warning as of today 04/01/2022).
+#+begin_src shell
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+#+end_src
+We then point the official Docker repo at apt:
+#+begin_src shell
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+#+end_src
+Let's verify that apt now points at the official Docker repo and not Ubuntu's.
+#+begin_src shell
+apt-cache policy docker-ce
+#+end_src 
+You should notice in this output that the version table should reference things like
+#+begin_src shell
+  500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages
+#+end_src 
+Finally, we can actually install docker.
+#+begin_src shell
+sudo apt install docker-ce
+#+end_src 
+let's verify that Docker is running (it should automatically start going forward)
+#+begin_src shell
+sudo systemctl status docker
+#+end_src 
+Finally, because many of our future heroku-cli commands and such will involve the assumption that user is privileged to use docker, we will need to add user to the Docker group so that we can run it in the future without sudo.
+#+begin_src shell
+sudo usermod -aG docker <your_user_name>
+#+end_src
+reboot and let's verify docker works:
+#+begin_src shell
+docker run hello-world
+#+end_src 
+While we'are add it, let's install Heroku command line too.
+#+begin_src shell
+sudo snap install --classic heroku
 #+end_src 
