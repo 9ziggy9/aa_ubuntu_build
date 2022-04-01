@@ -14,3 +14,4 @@ Given your machine model/make, look up the corresponding BIOS configuration key.
 Typical BIOS configuration keys are:
 - Esc
 - F2, F12, F8, etc...
+Hello world
