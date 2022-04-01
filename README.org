@@ -50,10 +50,62 @@ sudo snap install --classic <package_name>
 - *dpkg* is the core package installation utility of Debian and it's derivatives, /there be dragons here/. Whenever encountering installation instructions that recommend the usage of dpkg on provided .deb packages, we should EXERCISE EXTREME CAUTION. The reason being, Ubuntu and other distributions that lean heavily on apt do so to avoid what is known as *dependency hell*, a situation one can find themself in when they look to manually provide software support. For the most part, stay away from this unless you know precisely what you are doing and have an intimate knowledge of the versioning of your system software.
 - *other methods* are installations which involve the use of direct compilation, provided build scripts, or other means which involve the raw targeting of bin directories. Typically, we will encounter these types of installations as instructions from a git repository or in the building of our own software. 99% of the time, when we want some software which is not included in official repositories, the given application's relevant installation instructions will be included in their repository. At some point in this tutorial, we will see an example of this in the installation of some additional zsh features. It should be noted that the raw management of dependencies as with dpkg can present issues with such softwares but more often than not, we seek to install lightweight freestanding software in this fashion.
 **** Fresh System Update
-The provided Ubuntu image is most likely not 100% up to date, let's take this opportunity to run our first apt command to perform a full system update and reboot!
+The provided Ubuntu image is most likely not 100% up to date, let's take this opportunity to run our first apt command to perform a full system update and reboot! Open a terminal with ctrl-alt-t and run the following commands:
 #+begin_src shell
   sudo apt update
   sudo reboot
 #+end_src 
 ** Installing VSCode, zoom, slack via snaps
-Let's begin by installing our more proprietary minded software via snaps.
+Now that we've performed a system update, let's begin installing our more proprietary minded software via snaps.
+#+begin_src shell
+sudo snap install --classic code
+sudo snap install zoom-client
+sudo snap installl slack
+#+end_src 
+** Installing git, zsh via apt
+We now install git and zsh as our user shell, as I personally cannot live without it. Note the use of apt here, as these are widely loved and maintained FOSS (free and open source software). We can inline multiple packages if we'd like.
+#+begin_src shell
+sudo apt install git zsh
+#+end_src 
+To set our default user shell to zsh, we run
+#+begin_src shell
+which zsh
+#+end_src 
+to confirm the path to actual zsh binary (/usr/bin/zsh in our case) and then run
+#+begin_src shell
+chsh -s /usr/bin/zsh
+#+end_src 
+we quickly logout and log back in, and when opening a terminal we will be prompted with zsh initial config, just hit 2 for a simple config. We can always change this later.
+** Quick digression to install bloat!
+There are some absolute MONEY zsh utilities I would like to install at this juncture. You can skip this if you'd like, but once you start using these things you can't go back. This will also give us the opportunity to demonstrate an example of our *other methods* of installation.
+*** oh-my-zsh
+This is an extensive zsh customization framework, we'll add it to prettify our console prompt a bit and utilize it's autocompletion features. If we navigate to the oh-my-zsh github repo, we see installation is trivial. We'll use the curl method, but first we need curl!
+#+begin_src shell
+sudo apt install curl
+#+end_src 
+Now we run the recommended curl command;
+#+begin_src shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#+end_src 
+Presto, change-o, you now have oh-my-zsh installed. Have a look at themes if you'd like, we'll go with default at the moment. It is probably important to note that what we just did, piping third-party installation script to sh -c via network is EXTREMELY DANGEROUS. Never, ever, ever do this unless the software in question is reputable and widely used. oh-my-zsh is a Linux community mainstay, so in this case we let it slide.
+*** fzf
+This is the most beautiful and indispensible shell utility I am aware of. This tool alone is worth the entirety of the tutorial. fzf DOES exist in the official Ubuntu repository but requires additional configuration to get the feature set I want here. We again consult the fzf github repository and simply run their installation directives. 
+#+begin_src shell
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+#+end_src 
+this will clone the repository to a hidden directory in home called .fzf, and in this directory is an installation script we run by providing the command
+#+begin_src shell
+~/.fzf/install
+#+end_src 
+hit y for all prompts! We want all the goodness.
+To apply the shell configuration changes, we need to source our config file
+#+begin_src shell
+source ~/.zshrc
+#+end_src 
+BTW, in case you didn't know, the squiggly line "~" is an alias for the user's home directory, i.e. /home/ziggy in my case.
+Now I'm going to blow your mind. Up to this point we have typed in many commands. Suppose we don't remember one, but we need it again. Hit ctrl-r and start typing what you remember.
+*YOU'RE WELCOME*
+Can't remember that Heroku command you ran before? ctrl-r, can't remember some bizarre shell/awk combo you used earlier this week? ctrl-r.
+Here's another one to try, say you want to cd into a directory but don't quite remember it's path. Type cd, then ctrl-t.
+*OH MY GOD*
+Yeah, I know. You are forever in my debt for showing you this.
