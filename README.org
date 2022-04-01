@@ -117,7 +117,7 @@ sudo apt install python nodejs
 We should note that we are generally going to be using python 3, so it is somewhat inconvenient to constantly reference python 3 via python3 command. Let's create a quick alias to fix that.
 #+begin_src shell
 echo 'alias python="python3"' >> ~/.zshrc
-  source ~/.zshrc
+source ~/.zshrc
 #+end_src 
 Now you'll notice that
 #+begin_src shell
